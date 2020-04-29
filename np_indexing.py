@@ -51,6 +51,12 @@ print(arr)
 # Test a condition in an array
 bool_array = arr > 5
 print(bool_array)
-
 # To get only the truthy values
 print(arr[bool_array])
+
+# More commonly we would see in one line
+print(arr[arr>5])
+
+# Create a 5 to 10 array
+arr_2d = np.arange(50).reshape(5,10)
+print(arr_2d)
