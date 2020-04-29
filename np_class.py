@@ -32,3 +32,11 @@ print(f'The list of random numbers between 0 and 1: {random}')
 # Generate random numbers for integers low and high
 rand_int = np.random.randint(1,100,10)
 print(f'The list of 10 random intengers btwn 1 and 100: {rand_int}')
+
+# Discover the index of the max number of the array
+max_int = rand_int.argmax()
+print(f'The index of the max int in the array is: {max_int}')
+
+# To get the data type inside the array
+data_type = rand_int.dtype
+print(f'The datatype of the array is {data_type}')
