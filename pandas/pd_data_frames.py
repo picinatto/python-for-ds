@@ -87,3 +87,37 @@ print(df)
 
 # To set a column to be the index, use setindex
 print(df.set_index(df['States']))
+
+
+# Multi level INDEXES in DataFrames
+
+# Setting up the data
+outside = ['G1','G1','G1','G2','G2','G2']
+inside = [1,2,3,1,2,3]
+# Create a list of pairs
+hier_index = list(zip(outside,inside))
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+
+# Create a dataframe from random numbers
+df = pd.DataFrame(randn(6,2),hier_index,['A','B'])
+print(df) # Creates a two level index, the G1 and G2 and the 1,2,3
+
+# We can get data using the outer index
+print(df.loc['G1'])
+
+# Or we can get the subindex, for the example the first row of G1
+print(df.loc['G1'].loc[1])
+
+# To name the indexes
+df.index.names = ['Groups','Numbers']
+print(df)
+
+# To get a specific value
+print(df.loc['G2'].loc[2]['B'])
+
+# To select a section we can also use cross section G1
+print(df.xs('G1')) # The same as print(df.loc['G1'])
+
+# The cross section can skip the outermost index
+# To get the all numbers 1 rows, regardless of the Group
+print(df.xs(1,level='Numbers'))
