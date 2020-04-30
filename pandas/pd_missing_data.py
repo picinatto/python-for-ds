@@ -16,9 +16,9 @@ print(df.dropna(axis=1))
 # Only drop rows that more NA values than the threshold
 print(df.dropna(thresh=2))
 
-
-
+## 
 ## Fill NA
+##
 print(df.fillna(value='Fill Value'))
 
 # Fill with column calculated values
