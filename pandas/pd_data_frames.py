@@ -53,3 +53,37 @@ print(df.loc['B','Y'])
 
 # Selecting subset of rows
 print(df.loc[['A','B'],['W','Y']])
+
+# Conditional selection with data frames
+print(df[df>0])
+
+# To remove rows that are false from the dataframe
+print(df[df['W']>0])
+
+# Call commands in a filtered DF
+bool_df = df['W']>0
+filtered_df = df[bool_df]
+print(filtered_df['X'])
+
+# The same as writing all in one line..
+print(df[df['W']>0]['X'])
+
+# To use multiple conditions use '&', do not use 'and' for 'or' use '|'
+print(df[(df['W']>0) & (df['Y']>0)])
+
+
+
+# INDEX IN DATA FRAMES
+
+print('\n*************\nWorking with index Pandas Data Frames\n*************\n')
+
+# To reset indexes, the old index is moved to a index column
+# Needs inplace to persist
+print(df.reset_index())
+
+new_index = 'CA NY WY OR'.split()
+df['States'] = new_index
+print(df)
+
+# To set a column to be the index, use setindex
+print(df.set_index(df['States']))
