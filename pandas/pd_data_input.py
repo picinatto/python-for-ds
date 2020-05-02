@@ -20,3 +20,11 @@ df_html = pd.read_html('http://www.fdic.gov/bank/individual/failed/banklist.html
 print(df_html)
 
 # Reading from SQL
+from sqlalchemy import create_engine
+# Create in memory SQL lite database
+engine = create_engine('sqlite:///:memory:')
+# Write data to this SQL table
+df_csv.to_sql('my_table',engine)
+# Get the information from the SQL Table
+df_sql = pd.read_sql_table('my_table',con=engine)
+print(df_sql)
