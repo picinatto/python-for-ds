@@ -37,3 +37,24 @@ print(sal['JobTitle'].nunique())
 
 # What are the top 5 most common jobs
 print(sal['JobTitle'].value_counts().head())
+
+# How many Job Titles were represented by only one person in 2013?
+print(sum(sal.loc[sal['Year']==2013]['JobTitle'].value_counts() == 1))
+
+# How many people have the word Chief in their job title?
+def chief_string(title):
+    if 'chief' in title.lower():
+        return True
+    else:
+        return False
+
+print(sum(sal['JobTitle'].apply(lambda x: chief_string(x))))
+
+
+# Is there a correlation between length of the Job Title string and Salary
+
+# Create a new column to represent the length of a string 
+sal['JobTitleLen'] = sal['JobTitle'].apply(lambda x: len(x))
+
+# Get the correlation between the newly created column and total pay
+print(sal[['JobTitleLen','TotalPayBenefits']].corr())
