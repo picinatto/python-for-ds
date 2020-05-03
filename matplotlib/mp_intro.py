@@ -63,19 +63,21 @@ axes[1].set_title('Second Plot')
 ## FIGURE SIZE AND DPI
 ##
 
+# SET THE FIGURE SIZE
 fig,axes = plt.subplots(nrows=2,ncols=1,figsize=(8,8))
 axes[0].plot(x,y)
 axes[1].plot(y,x)
 plt.tight_layout()
 #plt.show()
 
-# Save the figure
+# SAVE THE FIGURE (PDF, PNG, JPEG)
 #fig.savefig('my_picture.png')
 
-# ADING LEGENDS
+# ADDING LEGENDS
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 ax.plot(x,x**2, label='X Squared')
 ax.plot(x,x**3, label='X Cubed')
-ax.legend()
+# Can set the location
+ax.legend(loc=(0.1,0.8))
 plt.show()
