@@ -56,5 +56,26 @@ axes[0].plot(x,y)
 axes[0].set_title('First Plot')
 axes[1].plot(y,x)
 axes[1].set_title('Second Plot')
-plt.show()
+#plt.show()
 
+
+##
+## FIGURE SIZE AND DPI
+##
+
+fig,axes = plt.subplots(nrows=2,ncols=1,figsize=(8,8))
+axes[0].plot(x,y)
+axes[1].plot(y,x)
+plt.tight_layout()
+#plt.show()
+
+# Save the figure
+#fig.savefig('my_picture.png')
+
+# ADING LEGENDS
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.plot(x,x**2, label='X Squared')
+ax.plot(x,x**3, label='X Cubed')
+ax.legend()
+plt.show()
