@@ -26,5 +26,5 @@ ax.plot(x,y,linestyle='--') # Or ls
 # ADDING MARKERS
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
-ax.plot(x,y,marker='o')
+ax.plot(x,y,marker='o',markersize=20)
 plt.show()
